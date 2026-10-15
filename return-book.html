@@ -1,0 +1,2046 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Return Book | LibraSys</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #1d2939;
+        }
+
+        .app {
+            display: flex;
+            min-height: 100vh;
+        }
+
+
+        /* ================= SIDEBAR ================= */
+
+        .sidebar {
+            width: 245px;
+            min-height: 100vh;
+            background: white;
+            border-right: 1px solid #e7ebf2;
+            padding: 22px 15px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 5px 10px 25px;
+        }
+
+        .logo {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            background: linear-gradient(
+                135deg,
+                #477de8,
+                #315fc2
+            );
+            display: grid;
+            place-items: center;
+            color: white;
+            font-size: 22px;
+        }
+
+        .brand h2 {
+            font-size: 18px;
+        }
+
+        .brand small {
+            display: block;
+            color: #8b95a5;
+            font-size: 8px;
+            margin-top: 3px;
+        }
+
+        .menu-title {
+            font-size: 8px;
+            color: #9ba4b2;
+            font-weight: bold;
+            padding: 15px 12px 8px;
+            letter-spacing: 1px;
+        }
+
+        .nav a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 11px 13px;
+            margin: 3px 0;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #687386;
+            font-size: 11px;
+        }
+
+        .nav a:hover {
+            background: #f1f5ff;
+            color: #477de8;
+        }
+
+        .nav a.active {
+            background: #eaf1ff;
+            color: #477de8;
+            font-weight: bold;
+        }
+
+        .nav a span:first-child {
+            width: 20px;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .side-tip {
+            position: absolute;
+            left: 15px;
+            right: 15px;
+            bottom: 20px;
+            padding: 15px;
+            border-radius: 12px;
+            background: linear-gradient(
+                135deg,
+                #f1f6ff,
+                #fff7ed
+            );
+        }
+
+        .tip-icon {
+            font-size: 22px;
+            margin-bottom: 7px;
+        }
+
+        .side-tip b {
+            font-size: 10px;
+        }
+
+        .side-tip p {
+            color: #8993a3;
+            font-size: 8px;
+            line-height: 1.5;
+            margin-top: 5px;
+        }
+
+
+        /* ================= MAIN ================= */
+
+        .main {
+            margin-left: 245px;
+            width: calc(100% - 245px);
+            padding: 0 25px 30px;
+        }
+
+
+        /* ================= TOPBAR ================= */
+
+        .topbar {
+            min-height: 85px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #e9edf3;
+            margin-bottom: 25px;
+        }
+
+        .title h1 {
+            font-size: 24px;
+            margin-bottom: 7px;
+        }
+
+        .crumb {
+            display: flex;
+            gap: 8px;
+            font-size: 9px;
+            color: #929baa;
+        }
+
+        .crumb a {
+            color: #477de8;
+            text-decoration: none;
+        }
+
+        .top-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .global-search {
+            width: 220px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 0 10px;
+            background: white;
+            border: 1px solid #e1e6ee;
+            border-radius: 8px;
+        }
+
+        .global-search input {
+            width: 100%;
+            border: none;
+            outline: none;
+            font-size: 10px;
+        }
+
+        .bell {
+            position: relative;
+            font-size: 18px;
+        }
+
+        .bell i {
+            position: absolute;
+            right: -6px;
+            top: -6px;
+            width: 15px;
+            height: 15px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: #ef5353;
+            color: white;
+            font-size: 7px;
+            font-style: normal;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .avatar {
+            width: 38px;
+            height: 38px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: linear-gradient(
+                135deg,
+                #477de8,
+                #315fc2
+            );
+            color: white;
+            font-weight: bold;
+            font-size: 11px;
+        }
+
+        .profile b {
+            display: block;
+            font-size: 10px;
+        }
+
+        .profile small {
+            display: block;
+            color: #8993a3;
+            font-size: 8px;
+            margin-top: 3px;
+        }
+
+
+        /* ================= INTRO ================= */
+
+        .intro {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 18px;
+            margin-bottom: 18px;
+            border: 1px solid #e9edf4;
+            border-radius: 14px;
+            background: linear-gradient(
+                135deg,
+                #eef5ff,
+                white
+            );
+        }
+
+        .intro-icon {
+            width: 55px;
+            height: 55px;
+            display: grid;
+            place-items: center;
+            border-radius: 14px;
+            background: #e5efff;
+            font-size: 27px;
+        }
+
+        .intro h2 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .intro p {
+            color: #8993a3;
+            font-size: 10px;
+        }
+
+
+        /* ================= GRID ================= */
+
+        .content-grid {
+            display: grid;
+            grid-template-columns:
+                minmax(0, 1.6fr)
+                minmax(280px, .8fr);
+            gap: 18px;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #e8edf3;
+            border-radius: 14px;
+            padding: 20px;
+            box-shadow:
+                0 8px 30px rgba(35,55,90,.04);
+        }
+
+        .card-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .card-head h3 {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .card-head p {
+            color: #8993a3;
+            font-size: 9px;
+        }
+
+
+        /* ================= FORM ================= */
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 17px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #4e5969;
+            font-size: 9px;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #dfe5ed;
+            border-radius: 8px;
+            outline: none;
+            background: white;
+            color: #354052;
+            font-size: 10px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #477de8;
+            box-shadow:
+                0 0 0 3px
+                rgba(71,125,232,.08);
+        }
+
+        .form-group textarea {
+            height: 85px;
+            resize: none;
+        }
+
+
+        /* ================= BUTTON ================= */
+
+        .form-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            border: none;
+            border-radius: 8px;
+            padding: 11px 18px;
+            font-size: 9px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .primary {
+            color: white;
+            background: linear-gradient(
+                135deg,
+                #477de8,
+                #315fc2
+            );
+        }
+
+        .secondary {
+            color: #687386;
+            background: #f3f5f8;
+        }
+
+
+        /* ================= BADGES ================= */
+
+        .badge {
+            display: inline-block;
+            padding: 6px 9px;
+            border-radius: 20px;
+            font-size: 8px;
+            font-weight: bold;
+        }
+
+        .available {
+            background: #e9f8f0;
+            color: #19965a;
+        }
+
+        .overdue {
+            background: #fff0f0;
+            color: #e65353;
+        }
+
+        .issued {
+            background: #fff1e4;
+            color: #e87518;
+        }
+
+
+        /* ================= SUMMARY ================= */
+
+        .member-box {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #edf0f4;
+        }
+
+        .member-avatar {
+            width: 45px;
+            height: 45px;
+            display: grid;
+            place-items: center;
+            border-radius: 11px;
+            background: linear-gradient(
+                135deg,
+                #477de8,
+                #315fc2
+            );
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .member-box strong {
+            display: block;
+            font-size: 11px;
+        }
+
+        .member-box small {
+            display: block;
+            color: #8993a3;
+            font-size: 8px;
+            margin-top: 4px;
+        }
+
+
+        /* ================= BOOK ================= */
+
+        .book-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 13px;
+            border-radius: 10px;
+            background: #f8f9fc;
+        }
+
+        .book-cover {
+            width: 45px;
+            height: 60px;
+            display: grid;
+            place-items: center;
+            border-radius: 5px;
+            background: linear-gradient(
+                135deg,
+                #477de8,
+                #315fc2
+            );
+            color: white;
+            text-align: center;
+            font-size: 7px;
+            font-weight: bold;
+        }
+
+        .book-box strong {
+            font-size: 10px;
+        }
+
+        .book-box small {
+            display: block;
+            color: #8993a3;
+            font-size: 8px;
+            margin: 5px 0 8px;
+        }
+
+
+        /* ================= STATUS ================= */
+
+        .status-line {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #edf0f4;
+            color: #687386;
+            font-size: 9px;
+        }
+
+        .status-line:last-child {
+            border-bottom: none;
+        }
+
+        .status-line b {
+            color: #273249;
+        }
+
+
+        /* ================= FINE BOX ================= */
+
+        .fine-box {
+            margin-top: 15px;
+            padding: 16px;
+            border-radius: 11px;
+            background: linear-gradient(
+                135deg,
+                #fff5f5,
+                #fffafa
+            );
+            border: 1px solid #ffe0e0;
+        }
+
+        .fine-title {
+            color: #e65353;
+            font-size: 9px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .fine-amount {
+            color: #e65353;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+
+        /* ================= SUCCESS ================= */
+
+        .success {
+            display: none;
+            margin-top: 15px;
+            padding: 13px;
+            border-radius: 9px;
+            background: #eaf8f0;
+            border: 1px solid #ccebd9;
+            color: #178451;
+            font-size: 9px;
+            line-height: 1.6;
+        }
+
+        .success.show {
+            display: block;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            margin-top: 25px;
+            text-align: center;
+            color: #a0a8b5;
+            font-size: 8px;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width:900px) {
+
+            .sidebar {
+                width: 200px;
+            }
+
+            .main {
+                margin-left: 200px;
+                width: calc(100% - 200px);
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media(max-width:650px) {
+
+            .sidebar {
+                display: none;
+            }
+
+            .main {
+                width: 100%;
+                margin-left: 0;
+                padding: 0 15px 25px;
+            }
+
+            .topbar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+                padding: 20px 0;
+            }
+
+            .top-right {
+                width: 100%;
+            }
+
+            .global-search {
+                flex: 1;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="app">
+
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="logo">
+                📚
+            </div>
+
+            <div>
+
+                <h2>
+                    LibraSys
+                </h2>
+
+                <small>
+                    Library Management
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="menu-title">
+            MAIN MENU
+        </div>
+
+
+        <nav class="nav">
+
+            <a href="index.html">
+                <span>⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="books.html">
+                <span>▣</span>
+                <span>Books</span>
+            </a>
+
+            <a href="members.html">
+                <span>♙</span>
+                <span>Members</span>
+            </a>
+
+            <a href="issue-book.html">
+                <span>⇧</span>
+                <span>Issue Book</span>
+            </a>
+
+            <a
+                href="return-book.html"
+                class="active"
+            >
+                <span>⇩</span>
+                <span>Return Book</span>
+            </a>
+
+            <a href="transactions.html">
+                <span>▤</span>
+                <span>Transactions</span>
+            </a>
+
+            <a href="reports.html">
+                <span>▥</span>
+                <span>Reports</span>
+            </a>
+
+        </nav>
+
+
+        <div class="menu-title">
+            SYSTEM
+        </div>
+
+
+        <nav class="nav">
+
+            <a href="settings.html">
+                <span>⚙</span>
+                <span>Settings</span>
+            </a>
+
+            <a href="logout.html">
+                <span>⇥</span>
+                <span>Logout</span>
+            </a>
+
+        </nav>
+
+
+        <div class="side-tip">
+
+            <div class="tip-icon">
+                📥
+            </div>
+
+            <b>
+                Easy Returns
+            </b>
+
+            <p>
+                Return books quickly and
+                calculate overdue fines automatically.
+            </p>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div class="title">
+
+                <h1>
+                    Return Book
+                </h1>
+
+                <div class="crumb">
+
+                    <a href="index.html">
+                        Dashboard
+                    </a>
+
+                    <span>
+                        ›
+                    </span>
+
+                    <b>
+                        Return Book
+                    </b>
+
+                </div>
+
+            </div>
+
+
+            <div class="top-right">
+
+                <div class="global-search">
+
+                    🔍
+
+                    <input
+                        type="text"
+                        placeholder="Search anything..."
+                    >
+
+                </div>
+
+
+                <div class="bell">
+
+                    🔔
+
+                    <i>3</i>
+
+                </div>
+
+
+                <div class="profile">
+
+                    <div class="avatar">
+                        A
+                    </div>
+
+                    <div>
+
+                        <b>
+                            Admin
+                        </b>
+
+                        <small>
+                            Administrator
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- INTRO -->
+
+        <div class="intro">
+
+            <div class="intro-icon">
+                📥
+            </div>
+
+            <div>
+
+                <h2>
+                    Return a Book
+                </h2>
+
+                <p>
+                    Process returned books and
+                    automatically calculate overdue fines.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- CONTENT -->
+
+        <div class="content-grid">
+
+
+            <!-- ================= FORM ================= -->
+
+            <div class="card">
+
+                <div class="card-head">
+
+                    <div>
+
+                        <h3>
+                            Return Book Details
+                        </h3>
+
+                        <p>
+                            Select an issued book to return
+                        </p>
+
+                    </div>
+
+                    <span class="badge issued">
+                        Return Processing
+                    </span>
+
+                </div>
+
+
+                <form id="returnBookForm">
+
+
+                    <!-- TRANSACTION -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Select Issued Transaction *
+                        </label>
+
+                        <select
+                            id="transactionSelect"
+                            required
+                        >
+
+                            <option value="">
+                                Choose issued book
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- MEMBER + BOOK -->
+
+                    <div class="form-row">
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Member
+                            </label>
+
+                            <input
+                                type="text"
+                                id="memberName"
+                                readonly
+                                placeholder="Member name"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Book
+                            </label>
+
+                            <input
+                                type="text"
+                                id="bookName"
+                                readonly
+                                placeholder="Book name"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- DATES -->
+
+                    <div class="form-row">
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Issue Date
+                            </label>
+
+                            <input
+                                type="date"
+                                id="issueDate"
+                                readonly
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Due Date
+                            </label>
+
+                            <input
+                                type="date"
+                                id="dueDate"
+                                readonly
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- RETURN DATE + CONDITION -->
+
+                    <div class="form-row">
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Return Date *
+                            </label>
+
+                            <input
+                                type="date"
+                                id="returnDate"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Book Condition
+                            </label>
+
+                            <select id="condition">
+
+                                <option>
+                                    Good Condition
+                                </option>
+
+                                <option>
+                                    Minor Damage
+                                </option>
+
+                                <option>
+                                    Damaged
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- NOTES -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Return Notes
+                        </label>
+
+                        <textarea
+                            id="notes"
+                            placeholder="Add notes about returned book..."
+                        ></textarea>
+
+                    </div>
+
+
+
+                    <!-- BUTTONS -->
+
+                    <div class="form-actions">
+
+                        <button
+                            type="submit"
+                            class="btn primary"
+                        >
+                            📥 Confirm Return
+                        </button>
+
+
+                        <button
+                            type="reset"
+                            class="btn secondary"
+                            id="clearButton"
+                        >
+                            Clear
+                        </button>
+
+                    </div>
+
+
+                    <!-- SUCCESS -->
+
+                    <div
+                        id="successMessage"
+                        class="success"
+                    ></div>
+
+                </form>
+
+            </div>
+
+
+
+            <!-- ================= RIGHT SIDE ================= -->
+
+            <div>
+
+
+                <!-- MEMBER SUMMARY -->
+
+                <div
+                    class="card"
+                    style="margin-bottom:18px;"
+                >
+
+                    <div class="card-head">
+
+                        <div>
+
+                            <h3>
+                                Member Summary
+                            </h3>
+
+                            <p>
+                                Selected member information
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="member-box">
+
+                        <div
+                            class="member-avatar"
+                            id="memberAvatar"
+                        >
+                            --
+                        </div>
+
+
+                        <div>
+
+                            <strong id="summaryMember">
+                                No Member Selected
+                            </strong>
+
+                            <small id="summaryMemberId">
+                                Select a transaction
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        style="
+                            margin-top:15px;
+                        "
+                    >
+
+                        <div class="status-line">
+
+                            Currently Issued
+
+                            <b id="issuedCount">
+                                0
+                            </b>
+
+                        </div>
+
+
+                        <div class="status-line">
+
+                            Return Status
+
+                            <span
+                                class="badge issued"
+                                id="returnStatus"
+                            >
+                                Pending
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- BOOK SUMMARY -->
+
+                <div class="card">
+
+
+                    <div class="card-head">
+
+                        <div>
+
+                            <h3>
+                                Return Summary
+                            </h3>
+
+                            <p>
+                                Fine calculation
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="book-box">
+
+                        <div class="book-cover">
+                            📚
+                        </div>
+
+                        <div>
+
+                            <strong id="summaryBook">
+                                No Book Selected
+                            </strong>
+
+                            <small>
+                                Library Collection
+                            </small>
+
+                            <span
+                                class="badge issued"
+                                id="bookStatus"
+                            >
+                                Issued
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- DATES -->
+
+                    <div
+                        style="
+                            margin-top:15px;
+                        "
+                    >
+
+                        <div class="status-line">
+
+                            Due Date
+
+                            <b id="summaryDue">
+                                —
+                            </b>
+
+                        </div>
+
+
+                        <div class="status-line">
+
+                            Return Date
+
+                            <b id="summaryReturn">
+                                —
+                            </b>
+
+                        </div>
+
+
+                        <div class="status-line">
+
+                            Overdue Days
+
+                            <b
+                                id="overdueDays"
+                                style="color:#e65353;"
+                            >
+                                0
+                            </b>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FINE -->
+
+                    <div class="fine-box">
+
+                        <div class="fine-title">
+                            OVERDUE FINE
+                        </div>
+
+                        <div
+                            class="fine-amount"
+                            id="fineAmount"
+                        >
+                            ₹0
+                        </div>
+
+                        <small
+                            style="
+                                display:block;
+                                color:#a18c8c;
+                                font-size:8px;
+                                margin-top:5px;
+                            "
+                        >
+                            ₹10 per overdue day
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <footer>
+
+            © 2026 LibraSys.
+            All rights reserved.
+
+        </footer>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+    const transactionSelect =
+        document.getElementById(
+            "transactionSelect"
+        );
+
+    const memberName =
+        document.getElementById(
+            "memberName"
+        );
+
+    const bookName =
+        document.getElementById(
+            "bookName"
+        );
+
+    const issueDate =
+        document.getElementById(
+            "issueDate"
+        );
+
+    const dueDate =
+        document.getElementById(
+            "dueDate"
+        );
+
+    const returnDate =
+        document.getElementById(
+            "returnDate"
+        );
+
+    const memberAvatar =
+        document.getElementById(
+            "memberAvatar"
+        );
+
+    const summaryMember =
+        document.getElementById(
+            "summaryMember"
+        );
+
+    const summaryMemberId =
+        document.getElementById(
+            "summaryMemberId"
+        );
+
+    const summaryBook =
+        document.getElementById(
+            "summaryBook"
+        );
+
+    const summaryDue =
+        document.getElementById(
+            "summaryDue"
+        );
+
+    const summaryReturn =
+        document.getElementById(
+            "summaryReturn"
+        );
+
+    const overdueDays =
+        document.getElementById(
+            "overdueDays"
+        );
+
+    const fineAmount =
+        document.getElementById(
+            "fineAmount"
+        );
+
+    const returnStatus =
+        document.getElementById(
+            "returnStatus"
+        );
+
+    const bookStatus =
+        document.getElementById(
+            "bookStatus"
+        );
+
+
+    /*
+    ========================================
+       TODAY
+    ========================================
+    */
+
+    const today =
+        new Date();
+
+    const todayString =
+        today
+        .toISOString()
+        .split("T")[0];
+
+    returnDate.value =
+        todayString;
+
+
+    /*
+    ========================================
+       GET TRANSACTIONS
+    ========================================
+    */
+
+    function getTransactions() {
+
+        return JSON.parse(
+            localStorage.getItem(
+                "transactions"
+            )
+        ) || [];
+
+    }
+
+
+    /*
+    ========================================
+       LOAD ISSUED BOOKS
+    ========================================
+    */
+
+    function loadTransactions() {
+
+        const transactions =
+            getTransactions();
+
+        transactionSelect.innerHTML =
+            `
+            <option value="">
+                Choose issued book
+            </option>
+            `;
+
+
+        transactions.forEach(
+            (transaction, index) => {
+
+                if (
+                    transaction.status ===
+                    "Issued"
+                ) {
+
+                    const option =
+                        document.createElement(
+                            "option"
+                        );
+
+                    option.value =
+                        index;
+
+                    option.textContent =
+                        transaction.book +
+                        " — " +
+                        transaction.member +
+                        " — " +
+                        transaction.id;
+
+                    transactionSelect.appendChild(
+                        option
+                    );
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /*
+    ========================================
+       FORMAT DATE
+    ========================================
+    */
+
+    function formatDate(date) {
+
+        if (!date) {
+            return "—";
+        }
+
+        const d =
+            new Date(date);
+
+        return d.toLocaleDateString(
+            "en-IN",
+            {
+                day: "2-digit",
+                month: "short",
+                year: "numeric"
+            }
+        );
+
+    }
+
+
+    /*
+    ========================================
+       UPDATE SUMMARY
+    ========================================
+    */
+
+    function updateSummary() {
+
+        const index =
+            transactionSelect.value;
+
+
+        if (index === "") {
+
+            memberName.value = "";
+            bookName.value = "";
+            issueDate.value = "";
+            dueDate.value = "";
+
+            summaryMember.textContent =
+                "No Member Selected";
+
+            summaryMemberId.textContent =
+                "Select a transaction";
+
+            summaryBook.textContent =
+                "No Book Selected";
+
+            summaryDue.textContent =
+                "—";
+
+            return;
+
+        }
+
+
+        const transactions =
+            getTransactions();
+
+        const transaction =
+            transactions[index];
+
+
+        if (!transaction) {
+            return;
+        }
+
+
+        memberName.value =
+            transaction.member;
+
+        bookName.value =
+            transaction.book;
+
+        issueDate.value =
+            transaction.issueDate;
+
+        dueDate.value =
+            transaction.dueDate;
+
+
+        summaryMember.textContent =
+            transaction.member
+            .split(" — ")[0];
+
+        summaryMemberId.textContent =
+            transaction.member
+            .split(" — ")[1] ||
+            transaction.id;
+
+        summaryBook.textContent =
+            transaction.book;
+
+        summaryDue.textContent =
+            formatDate(
+                transaction.dueDate
+            );
+
+
+        calculateFine();
+
+    }
+
+
+    /*
+    ========================================
+       CALCULATE FINE
+    ========================================
+    */
+
+    function calculateFine() {
+
+        if (
+            !dueDate.value ||
+            !returnDate.value
+        ) {
+
+            return;
+
+        }
+
+
+        const due =
+            new Date(
+                dueDate.value
+            );
+
+        const returned =
+            new Date(
+                returnDate.value
+            );
+
+
+        const difference =
+            returned - due;
+
+
+        let days = 0;
+
+
+        if (difference > 0) {
+
+            days =
+                Math.ceil(
+                    difference /
+                    (1000 * 60 * 60 * 24)
+                );
+
+        }
+
+
+        const fine =
+            days * 10;
+
+
+        overdueDays.textContent =
+            days;
+
+        fineAmount.textContent =
+            "₹" + fine;
+
+
+        summaryReturn.textContent =
+            formatDate(
+                returnDate.value
+            );
+
+
+        if (days > 0) {
+
+            returnStatus.textContent =
+                "Overdue";
+
+            returnStatus.className =
+                "badge overdue";
+
+        } else {
+
+            returnStatus.textContent =
+                "On Time";
+
+            returnStatus.className =
+                "badge available";
+
+        }
+
+    }
+
+
+    /*
+    ========================================
+       TRANSACTION SELECT
+    ========================================
+    */
+
+    transactionSelect
+        .addEventListener(
+            "change",
+            updateSummary
+        );
+
+
+    /*
+    ========================================
+       RETURN DATE CHANGE
+    ========================================
+    */
+
+    returnDate
+        .addEventListener(
+            "change",
+            calculateFine
+        );
+
+
+    /*
+    ========================================
+       FORM SUBMIT
+    ========================================
+    */
+
+    document
+        .getElementById(
+            "returnBookForm"
+        )
+        .addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+
+                const index =
+                    transactionSelect.value;
+
+
+                if (index === "") {
+
+                    alert(
+                        "Please select an issued book."
+                    );
+
+                    return;
+
+                }
+
+
+                const transactions =
+                    getTransactions();
+
+
+                const transaction =
+                    transactions[index];
+
+
+                if (!transaction) {
+
+                    alert(
+                        "Transaction not found."
+                    );
+
+                    return;
+
+                }
+
+
+                /*
+                CHECK RETURN DATE
+                */
+
+                if (
+                    new Date(
+                        returnDate.value
+                    ) <
+                    new Date(
+                        transaction.issueDate
+                    )
+                ) {
+
+                    alert(
+                        "Return date cannot be before issue date."
+                    );
+
+                    return;
+
+                }
+
+
+                /*
+                CALCULATE FINE
+                */
+
+                const due =
+                    new Date(
+                        transaction.dueDate
+                    );
+
+                const returned =
+                    new Date(
+                        returnDate.value
+                    );
+
+                let days = 0;
+
+
+                if (returned > due) {
+
+                    days =
+                        Math.ceil(
+                            (
+                                returned - due
+                            ) /
+                            (
+                                1000 *
+                                60 *
+                                60 *
+                                24
+                            )
+                        );
+
+                }
+
+
+                const fine =
+                    days * 10;
+
+
+                /*
+                UPDATE TRANSACTION
+                */
+
+                transaction.returnDate =
+                    returnDate.value;
+
+                transaction.fine =
+                    fine;
+
+                transaction.status =
+                    "Returned";
+
+
+                transaction.condition =
+                    document.getElementById(
+                        "condition"
+                    ).value;
+
+                transaction.returnNotes =
+                    document.getElementById(
+                        "notes"
+                    ).value;
+
+
+                /*
+                SAVE
+                */
+
+                localStorage.setItem(
+                    "transactions",
+                    JSON.stringify(
+                        transactions
+                    )
+                );
+
+
+                /*
+                SUCCESS
+                */
+
+                const message =
+                    document.getElementById(
+                        "successMessage"
+                    );
+
+
+                message.innerHTML =
+                    `
+                    ✅ <strong>
+                    ${transaction.book}
+                    </strong>
+                    returned successfully!
+                    <br>
+                    Fine: <strong>
+                    ₹${fine}
+                    </strong>
+                    <br>
+                    Transaction ID:
+                    <strong>
+                    ${transaction.id}
+                    </strong>
+                    `;
+
+
+                message.classList.add(
+                    "show"
+                );
+
+
+                /*
+                UPDATE BOOK STATUS
+                */
+
+                bookStatus.textContent =
+                    "Returned";
+
+                bookStatus.className =
+                    "badge available";
+
+
+                /*
+                RELOAD OPTIONS
+                */
+
+                loadTransactions();
+
+            }
+        );
+
+
+    /*
+    ========================================
+       CLEAR FORM
+    ========================================
+    */
+
+    document
+        .getElementById(
+            "clearButton"
+        )
+        .addEventListener(
+            "click",
+            function() {
+
+                setTimeout(
+                    function() {
+
+                        memberName.value = "";
+                        bookName.value = "";
+                        issueDate.value = "";
+                        dueDate.value = "";
+
+                        summaryMember.textContent =
+                            "No Member Selected";
+
+                        summaryMemberId.textContent =
+                            "Select a transaction";
+
+                        summaryBook.textContent =
+                            "No Book Selected";
+
+                        summaryDue.textContent =
+                            "—";
+
+                        summaryReturn.textContent =
+                            "—";
+
+                        overdueDays.textContent =
+                            "0";
+
+                        fineAmount.textContent =
+                            "₹0";
+
+                        returnStatus.textContent =
+                            "Pending";
+
+                        returnStatus.className =
+                            "badge issued";
+
+                        bookStatus.textContent =
+                            "Issued";
+
+                        bookStatus.className =
+                            "badge issued";
+
+                        document
+                            .getElementById(
+                                "successMessage"
+                            )
+                            .classList.remove(
+                                "show"
+                            );
+
+                        returnDate.value =
+                            todayString;
+
+                    },
+                    0
+                );
+
+            }
+        );
+
+
+    /*
+    ========================================
+       INITIAL LOAD
+    ========================================
+    */
+
+    loadTransactions();
+
+</script>
+
+
+</body>
+
+</html>

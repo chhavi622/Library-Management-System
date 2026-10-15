@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Library Registration | LibraSys</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #1d2939;
+        }
+
+        header {
+            height: 75px;
+            background: white;
+            border-bottom: 1px solid #e6eaf0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            width: 43px;
+            height: 43px;
+            border-radius: 12px;
+            background: linear-gradient(
+                135deg,
+                #477de8,
+                #315fc2
+            );
+            color: white;
+            display: grid;
+            place-items: center;
+            font-size: 21px;
+        }
+
+        .brand h2 {
+            font-size: 18px;
+        }
+
+        .brand small {
+            display: block;
+            color: #8993a3;
+            font-size: 8px;
+            margin-top: 3px;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: #477de8;
+            background: #eef4ff;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .hero {
+            width: 86%;
+            margin: 25px auto;
+            padding: 35px;
+            border-radius: 18px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #eaf2ff,
+                    #ffffff
+                );
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero h1 {
+            font-size: 30px;
+            margin-bottom: 12px;
+            color: #182238;
+        }
+
+        .hero p {
+            color: #687386;
+            font-size: 12px;
+            line-height: 1.7;
+            max-width: 550px;
+        }
+
+        .hero-image {
+            width: 280px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 14px;
+            box-shadow:
+                0 15px 35px
+                rgba(35,55,90,.12);
+        }
+
+
+        .container {
+            width: 86%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.5fr .8fr;
+            gap: 20px;
+            padding-bottom: 40px;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #e7ebf1;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow:
+                0 8px 30px
+                rgba(35,55,90,.05);
+        }
+
+        .card-title {
+            margin-bottom: 20px;
+        }
+
+        .card-title h2 {
+            font-size: 17px;
+            margin-bottom: 5px;
+        }
+
+        .card-title p {
+            color: #8993a3;
+            font-size: 9px;
+        }
+
+        fieldset {
+            border: 1px solid #e1e6ee;
+            border-radius: 11px;
+            padding: 18px;
+            margin-bottom: 18px;
+        }
+
+        legend {
+            padding: 0 8px;
+            color: #477de8;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            color: #4e5969;
+            font-size: 9px;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #dce2ea;
+            border-radius: 8px;
+            outline: none;
+            font-size: 10px;
+            color: #354052;
+            background: white;
+        }
+
+        textarea {
+            height: 85px;
+            resize: vertical;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #477de8;
+            box-shadow:
+                0 0 0 3px
+                rgba(71,125,232,.08);
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 9px;
+            color: #687386;
+            cursor: pointer;
+        }
+
+        .radio-option input {
+            accent-color: #477de8;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            color: #687386;
+            font-size: 9px;
+            cursor: pointer;
+        }
+
+        .checkbox-option input {
+            accent-color: #477de8;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 9px;
+            font-weight: bold;
+        }
+
+        .submit-btn {
+            color: white;
+            background:
+                linear-gradient(
+                    135deg,
+                    #477de8,
+                    #315fc2
+                );
+        }
+
+        .reset-btn {
+            color: #687386;
+            background: #f1f3f6;
+        }
+
+        button:hover {
+            transform: translateY(-1px);
+        }
+
+
+        .media-title {
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        .media-description {
+            color: #8993a3;
+            font-size: 9px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .library-image {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 18px;
+        }
+
+        video {
+            width: 100%;
+            border-radius: 12px;
+            background: #111827;
+        }
+
+        .media-note {
+            margin-top: 12px;
+            padding: 12px;
+            background: #f5f8ff;
+            border-radius: 9px;
+            color: #687386;
+            font-size: 8px;
+            line-height: 1.6;
+        }
+
+
+        #successMessage {
+            display: none;
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            background: #eaf8f0;
+            color: #178451;
+            font-size: 9px;
+        }
+
+        #successMessage.show {
+            display: block;
+        }
+
+
+        footer {
+            text-align: center;
+            color: #9aa3b1;
+            font-size: 8px;
+            padding: 20px;
+        }
+
+
+        @media(max-width: 850px) {
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero-image {
+                width: 100%;
+                height: 220px;
+            }
+
+        }
+
+        @media(max-width: 600px) {
+
+            .hero,
+            .container {
+                width: 92%;
+            }
+
+            .hero {
+                padding: 25px;
+            }
+
+            .hero h1 {
+                font-size: 24px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 0 4%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+
+<header>
+
+    <div class="brand">
+
+        <div class="logo">
+            📚
+        </div>
+
+        <div>
+
+            <h2>
+                LibraSys
+            </h2>
+
+            <small>
+                Library Management System
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <a
+        href="index.html"
+        class="back-btn"
+    >
+        ← Dashboard
+    </a>
+
+</header>
+
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            Join Our Library
+        </h1>
+
+        <p>
+            Register as a library member and
+            get access to thousands of books.
+        </p>
+
+    </div>
+
+    <img
+        class="hero-image"
+        src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=800&q=80"
+        alt="Modern library interior"
+    >
+
+</section>
+
+<div class="container">
+    <div class="card">
+
+        <div class="card-title">
+
+            <h2>
+                Library Membership Form
+            </h2>
+
+            <p>
+                Please provide the following
+                information to register.
+            </p>
+
+        </div>
+
+
+        <form id="libraryForm">
+
+
+
+            <fieldset>
+
+                <legend>
+                    Personal Information
+                </legend>
+
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label for="fullName">
+                            Full Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="fullName"
+                            name="fullName"
+                            placeholder="Enter your full name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address *
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="example@gmail.com"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Phone Number *
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="+91 98765 43210"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="dob">
+                            Date of Birth
+                        </label>
+
+                        <input
+                            type="date"
+                            id="dob"
+                            name="dob"
+                        >
+
+                    </div>
+
+                </div>
+
+            </fieldset>
+
+
+
+            <!-- MEMBERSHIP -->
+
+            <fieldset>
+
+                <legend>
+                    Membership Details
+                </legend>
+
+
+                <div class="form-group">
+
+                    <label for="membership">
+                        Membership Type *
+                    </label>
+
+                    <select
+                        id="membership"
+                        name="membership"
+                        required
+                    >
+
+                        <option value="">
+                            Select membership type
+                        </option>
+
+                        <option value="student">
+                            Student
+                        </option>
+
+                        <option value="faculty">
+                            Faculty
+                        </option>
+
+                        <option value="general">
+                            General Member
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- RADIO BUTTONS -->
+
+                <div class="form-group">
+
+                    <label>
+                        Preferred Reading Mode *
+                    </label>
+
+
+                    <div class="radio-group">
+
+
+                        <label class="radio-option">
+
+                            <input
+                                type="radio"
+                                name="readingMode"
+                                value="physical"
+                                required
+                            >
+
+                            Physical Books
+
+                        </label>
+
+
+                        <label class="radio-option">
+
+                            <input
+                                type="radio"
+                                name="readingMode"
+                                value="digital"
+                            >
+
+                            Digital Books
+
+                        </label>
+
+
+                        <label class="radio-option">
+
+                            <input
+                                type="radio"
+                                name="readingMode"
+                                value="both"
+                            >
+
+                            Both
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </fieldset>
+
+
+
+            <!-- INTERESTS -->
+
+            <fieldset>
+
+                <legend>
+                    Reading Interests
+                </legend>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Select Your Interests
+                    </label>
+
+
+                    <div class="checkbox-group">
+
+
+                        <label class="checkbox-option">
+
+                            <input
+                                type="checkbox"
+                                name="interest"
+                                value="programming"
+                            >
+
+                            Programming
+
+                        </label>
+
+
+                        <label class="checkbox-option">
+
+                            <input
+                                type="checkbox"
+                                name="interest"
+                                value="database"
+                            >
+
+                            Database
+
+                        </label>
+
+
+                        <label class="checkbox-option">
+
+                            <input
+                                type="checkbox"
+                                name="interest"
+                                value="web"
+                            >
+
+                            Web Development
+
+                        </label>
+
+
+                        <label class="checkbox-option">
+
+                            <input
+                                type="checkbox"
+                                name="interest"
+                                value="fiction"
+                            >
+
+                            Fiction
+
+                        </label>
+
+
+                        <label class="checkbox-option">
+
+                            <input
+                                type="checkbox"
+                                name="interest"
+                                value="science"
+                            >
+
+                            Science
+
+                        </label>
+
+
+                        <label class="checkbox-option">
+
+                            <input
+                                type="checkbox"
+                                name="interest"
+                                value="business"
+                            >
+
+                            Business
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BOOK REQUEST -->
+
+                <div class="form-group">
+
+                    <label for="book">
+                        Book Category
+                    </label>
+
+                    <select id="book">
+
+                        <option>
+                            Select category
+                        </option>
+
+                        <option>
+                            Programming
+                        </option>
+
+                        <option>
+                            Computer Science
+                        </option>
+
+                        <option>
+                            Literature
+                        </option>
+
+                        <option>
+                            Science
+                        </option>
+
+                        <option>
+                            Business
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label for="message">
+                        Additional Request
+                    </label>
+
+                    <textarea
+                        id="message"
+                        placeholder="Tell us about any specific books or resources you need..."
+                    ></textarea>
+
+                </div>
+
+            </fieldset>
+
+            <fieldset>
+
+                <legend>
+                    Confirmation
+                </legend>
+
+
+                <label class="checkbox-option">
+
+                    <input
+                        type="checkbox"
+                        id="terms"
+                        required
+                    >
+
+                    I agree to follow the library
+                    rules and regulations.
+
+                </label>
+
+            </fieldset>
+
+
+            <div class="buttons">
+
+                <button
+                    type="submit"
+                    class="submit-btn"
+                >
+                    ✓ Submit Registration
+                </button>
+
+
+                <button
+                    type="reset"
+                    class="reset-btn"
+                >
+                    Clear Form
+                </button>
+
+            </div>
+
+
+            <div id="successMessage">
+
+                ✅ Registration submitted successfully!
+                Welcome to LibraSys Library.
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <div>
+
+
+        <div
+            class="card"
+            style="margin-bottom:20px;"
+        >
+
+            <h2 class="media-title">
+                Explore Our Library
+            </h2>
+
+            <p class="media-description">
+
+                Discover a peaceful environment
+                designed for reading, learning
+                and knowledge sharing.
+
+            </p>
+
+
+            <img
+                class="library-image"
+                src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=800&q=80"
+                alt="Bookshelves inside a library"
+            >
+
+
+            <div class="media-note">
+
+                📚 Thousands of books &nbsp; • &nbsp;
+                👥 Active members &nbsp; • &nbsp;
+                💡 Learning resources
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2 class="media-title">
+                Library Introduction
+            </h2>
+
+            <p class="media-description">
+                Watch this short introduction
+                to learn about library facilities.
+            </p>
+
+
+            <video
+                controls
+                preload="metadata"
+                poster="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=800&q=80"
+            >
+                <source src="media/library.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+
+            <div class="media-note">
+
+                ▶ Use the video controls to
+                play, pause and adjust volume.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<footer>
+
+    © 2026 LibraSys.
+    All rights reserved.
+
+</footer>
+
+<script>
+
+    const form =
+        document.getElementById(
+            "libraryForm"
+        );
+
+    const success =
+        document.getElementById(
+            "successMessage"
+        );
+
+
+    form.addEventListener(
+        "submit",
+        function(event) {
+
+            event.preventDefault();
+
+            success.classList.add(
+                "show"
+            );
+
+            form.reset();
+
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: "smooth"
+            });
+
+        }
+    );
+
+</script>
+
+
+</body>
+
+</html>

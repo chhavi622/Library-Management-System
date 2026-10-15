@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Books | LibraSys</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+<div class="app">
+
+
+    <!-- =====================================
+         SIDEBAR
+    ====================================== -->
+
+    <aside class="sidebar">
+
+        <!-- BRAND -->
+
+        <div class="brand">
+
+            <div class="logo">
+                📚
+            </div>
+
+            <div>
+
+                <h2>
+                    LibraSys
+                </h2>
+
+                <small>
+                    Library Management
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <!-- MAIN MENU -->
+
+        <div class="menu-title">
+            MAIN MENU
+        </div>
+
+
+        <nav class="nav">
+
+            <a href="index.html">
+
+                <span>⌂</span>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <a
+                href="books.html"
+                class="active"
+            >
+
+                <span>▣</span>
+
+                <span>
+                    Books
+                </span>
+
+            </a>
+
+
+            <a href="members.html">
+
+                <span>♙</span>
+
+                <span>
+                    Members
+                </span>
+
+            </a>
+
+
+            <a href="issue-book.html">
+
+                <span>⇧</span>
+
+                <span>
+                    Issue Book
+                </span>
+
+            </a>
+
+
+            <a href="return-book.html">
+
+                <span>⇩</span>
+
+                <span>
+                    Return Book
+                </span>
+
+            </a>
+
+
+            <a href="transactions.html">
+
+                <span>▤</span>
+
+                <span>
+                    Transactions
+                </span>
+
+            </a>
+
+
+            <a href="reports.html">
+
+                <span>▥</span>
+
+                <span>
+                    Reports
+                </span>
+
+            </a>
+
+        </nav>
+
+
+        <!-- SYSTEM -->
+
+        <div class="menu-title">
+            SYSTEM
+        </div>
+
+
+        <nav class="nav">
+
+            <a href="settings.html">
+
+                <span>⚙</span>
+
+                <span>
+                    Settings
+                </span>
+
+            </a>
+
+
+            <a href="logout.html">
+
+                <span>⇥</span>
+
+                <span>
+                    Logout
+                </span>
+
+            </a>
+
+        </nav>
+
+
+        <!-- SIDEBAR TIP -->
+
+        <div class="side-tip">
+
+            <div class="tip-icon">
+                📚
+            </div>
+
+            <b>
+                Knowledge is Power
+            </b>
+
+            <p>
+                Manage your library efficiently
+                and keep every book organized.
+            </p>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================
+         MAIN
+    ====================================== -->
+
+    <main class="main">
+
+
+        <!-- =================================
+             TOP BAR
+        ================================== -->
+
+        <header class="topbar">
+
+
+            <!-- TITLE -->
+
+            <div class="title">
+
+                <h1>
+                    Books
+                </h1>
+
+                <div class="crumb">
+
+                    <a href="index.html">
+                        Dashboard
+                    </a>
+
+                    <span>
+                        ›
+                    </span>
+
+                    <b>
+                        Books
+                    </b>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT SIDE -->
+
+            <div class="top-right">
+
+
+                <!-- SEARCH -->
+
+                <div class="global-search">
+
+                    🔍
+
+                    <input
+                        type="text"
+                        placeholder="Search anything..."
+                    >
+
+                </div>
+
+
+                <!-- NOTIFICATION -->
+
+                <div class="bell">
+
+                    🔔
+
+                    <i>
+                        3
+                    </i>
+
+                </div>
+
+
+                <!-- PROFILE -->
+
+                <div class="profile">
+
+                    <div class="avatar">
+                        A
+                    </div>
+
+                    <div>
+
+                        <b>
+                            Admin
+                        </b>
+
+                        <small>
+                            Administrator
+                        </small>
+
+                    </div>
+
+                    <span>
+                        ⌄
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =====================================
+             SEARCH + FILTER TOOLBAR
+        ====================================== -->
+
+        <div class="toolbar">
+
+
+            <!-- SEARCH BOOK -->
+
+            <input
+                type="text"
+                placeholder="🔍  Search by title, author or ISBN..."
+            >
+
+
+            <!-- CATEGORY -->
+
+            <select>
+
+                <option>
+                    All Categories
+                </option>
+
+                <option>
+                    Programming
+                </option>
+
+                <option>
+                    Database
+                </option>
+
+                <option>
+                    Web Development
+                </option>
+
+                <option>
+                    Networking
+                </option>
+
+                <option>
+                    Fiction
+                </option>
+
+            </select>
+
+
+            <!-- STATUS -->
+
+            <select>
+
+                <option>
+                    All Status
+                </option>
+
+                <option>
+                    Available
+                </option>
+
+                <option>
+                    Low Stock
+                </option>
+
+                <option>
+                    Unavailable
+                </option>
+
+            </select>
+
+
+            <!-- EXPORT -->
+
+            <button class="btn secondary">
+
+                ⇩
+                Export
+
+            </button>
+
+
+            <!-- ADD BOOK -->
+
+            <button class="btn primary">
+
+                ＋
+                Add New Book
+
+            </button>
+
+        </div>
+
+
+
+        <!-- =====================================
+             BOOK COLLECTION
+        ====================================== -->
+
+        <div class="card">
+
+
+            <!-- CARD HEADER -->
+
+            <div class="card-head">
+
+                <div>
+
+                    <h3>
+                        Book Collection
+                    </h3>
+
+                    <p>
+                        2,450 books in your library
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================
+                 TABLE
+            ================================== -->
+
+            <div class="table-wrap">
+
+                <table class="table">
+
+
+                    <!-- TABLE HEAD -->
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                #
+                            </th>
+
+                            <th>
+                                BOOK TITLE
+                            </th>
+
+                            <th>
+                                AUTHOR
+                            </th>
+
+                            <th>
+                                CATEGORY
+                            </th>
+
+                            <th>
+                                QUANTITY
+                            </th>
+
+                            <th>
+                                AVAILABLE
+                            </th>
+
+                            <th>
+                                STATUS
+                            </th>
+
+                            <th>
+                                ACTIONS
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+
+                    <tbody>
+
+
+                        <!-- =================================
+                             BOOK 1
+                        ================================== -->
+
+                        <tr>
+
+                            <td>
+                                01
+                            </td>
+
+
+                            <td>
+
+                                <div class="book-title">
+
+
+                                    <div class="cover c1">
+
+                                        JAVA
+
+                                    </div>
+
+
+                                    <div>
+
+                                        <strong>
+                                            Java Programming
+                                        </strong>
+
+                                        <small>
+                                            ISBN: 978-0134655991
+                                        </small>
+
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+
+                            <td>
+                                James Gosling
+                            </td>
+
+
+                            <td>
+
+                                <span class="tag tag-blue">
+
+                                    Programming
+
+                                </span>
+
+                            </td>
+
+
+                            <td>
+                                150
+                            </td>
+
+
+                            <td
+                                style="
+                                color:#18a05a;
+                                font-weight:700;
+                                "
+                            >
+                                100
+                            </td>
+
+
+                            <td>
+
+                                <span class="badge available">
+
+                                    Available
+
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <div class="actions">
+
+
+                                    <button
+                                        class="view"
+                                        title="View"
+                                    >
+                                        👁
+                                    </button>
+
+
+                                    <button
+                                        class="edit"
+                                        title="Edit"
+                                    >
+                                        ✎
+                                    </button>
+
+
+                                    <button
+                                        class="delete"
+                                        title="Delete"
+                                    >
+                                        🗑
+                                    </button>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- =================================
+                             BOOK 2
+                        ================================== -->
+
+                        <tr>
+
+                            <td>
+                                02
+                            </td>
+
+
+                            <td>
+
+                                <div class="book-title">
+
+
+                                    <div class="cover c2">
+
+                                        PYTHON
+
+                                    </div>
+
+
+                                    <div>
+
+                                        <strong>
+                                            Python Basics
+                                        </strong>
+
+                                        <small>
+                                            ISBN: 978-1491957660
+                                        </small>
+
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+
+                            <td>
+                                Mark Lutz
+                            </td>
+
+
+                            <td>
+
+                                <span class="tag tag-blue">
+
+                                    Programming
+
+                                </span>
+
+                            </td>
+
+
+                            <td>
+                                130
+                            </td>
+
+
+                            <td
+                                style="
+                                color:#18a05a;
+                                font-weight:700;
+                                "
+                            >
+                                65
+                            </td>
+
+
+                            <td>
+
+                                <span class="badge available">
+
+                                    Available
+
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <div class="actions">
+
+                                    <button class="view">
+                                        👁
+                                    </button>
+
+                                    <button class="edit">
+                                        ✎
+                                    </button>
+
+                                    <button class="delete">
+                                        🗑
+                                    </button>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- =================================
+                             BOOK 3
+                        ================================== -->
+
+                        <tr>
+
+                            <td>
+                                03
+                            </td>
+
+
+                            <td>
+
+                                <div class="book-title">
+
+
+                                    <div class="cover c3">
+
+                                        DB
+
+                                    </div>
+
+
+                                    <div>
+
+                                        <strong>
+                                            Database Systems
+                                        </strong>
+
+                                        <small>
+                                            ISBN: 978-0078022159
+                                        </small>
+
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+
+                            <td>
+                                Ramez Elmasri
+                            </td>
+
+
+                            <td>
+
+                                <span class="tag tag-purple">
+
+                                    Database
+
+                                </span>
+
+                            </td>
+
+
+                            <td>
+                                100
+                            </td>
+
+
+                            <td
+                                style="
+                                color:#e9790d;
+                                font-weight:700;
+                                "
+                            >
+                                20
+                            </td>
+
+
+                            <td>
+
+                                <span class="badge low">
+
+                                    Low Stock
+
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <div class="actions">
+
+                                    <button class="view">
+                                        👁
+                                    </button>
+
+                                    <button class="edit">
+                                        ✎
+                                    </button>
+
+                                    <button class="delete">
+                                        🗑
+                                    </button>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- =================================
+                             BOOK 4
+                        ================================== -->
+
+                        <tr>
+
+                            <td>
+                                04
+                            </td>
+
+
+                            <td>
+
+                                <div class="book-title">
+
+
+                                    <div class="cover c4">
+
+                                        HTML
+                                        <br>
+                                        & CSS
+
+                                    </div>
+
+
+                                    <div>
+
+                                        <strong>
+                                            Web Development
+                                        </strong>
+
+                                        <small>
+                                            ISBN: 978-0134444321
+                                        </small>
+
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+
+                            <td>
+                                Jon Duckett
+                            </td>
+
+
+                            <td>
+
+                                <span class="tag tag-teal">
+
+                                    Web Development
+
+                                </span>
+
+                            </td>
+
+
+                            <td>
+                                80
+                            </td>
+
+
+                            <td
+                                style="
+                                color:#18a05a;
+                                font-weight:700;
+                                "
+                            >
+                                42
+                            </td>
+
+
+                            <td>
+
+                                <span class="badge available">
+
+                                    Available
+
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <div class="actions">
+
+                                    <button class="view">
+                                        👁
+                                    </button>
+
+                                    <button class="edit">
+                                        ✎
+                                    </button>
+
+                                    <button class="delete">
+                                        🗑
+                                    </button>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- =================================
+                             BOOK 5
+                        ================================== -->
+
+                        <tr>
+
+                            <td>
+                                05
+                            </td>
+
+
+                            <td>
+
+                                <div class="book-title">
+
+
+                                    <div class="cover c5">
+
+                                        NETWORK
+
+                                    </div>
+
+
+                                    <div>
+
+                                        <strong>
+                                            Computer Networking
+                                        </strong>
+
+                                        <small>
+                                            ISBN: 978-0135941400
+                                        </small>
+
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+
+                            <td>
+                                Andrew Tanenbaum
+                            </td>
+
+
+                            <td>
+
+                                <span class="tag tag-pink">
+
+                                    Networking
+
+                                </span>
+
+                            </td>
+
+
+                            <td>
+                                90
+                            </td>
+
+
+                            <td
+                                style="
+                                color:#e65353;
+                                font-weight:700;
+                                "
+                            >
+                                0
+                            </td>
+
+
+                            <td>
+
+                                <span class="badge unavailable">
+
+                                    Unavailable
+
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <div class="actions">
+
+                                    <button class="view">
+                                        👁
+                                    </button>
+
+                                    <button class="edit">
+                                        ✎
+                                    </button>
+
+                                    <button class="delete">
+                                        🗑
+                                    </button>
+
+                                </div>
+
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+
+            <!-- =====================================
+                 PAGINATION
+            ====================================== -->
+
+            <div class="pagination">
+
+
+                <span>
+
+                    Showing
+                    <b>
+                        1 to 5
+                    </b>
+                    of
+                    <b>
+                        2,450
+                    </b>
+                    books
+
+                </span>
+
+
+                <div>
+
+                    <button>
+                        ‹
+                    </button>
+
+                    <button class="current">
+                        1
+                    </button>
+
+                    <button>
+                        2
+                    </button>
+
+                    <button>
+                        3
+                    </button>
+
+                    <button>
+                        4
+                    </button>
+
+                    <button>
+                        5
+                    </button>
+
+                    <button>
+                        ›
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================
+             FOOTER
+        ====================================== -->
+
+        <footer>
+
+            © 2026 LibraSys.
+            All rights reserved.
+
+        </footer>
+
+
+    </main>
+
+</div>
+
+</body>
+
+</html>

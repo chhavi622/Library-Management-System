@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Reports | LibraSys</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+<div class="app">
+
+
+    <!-- =====================================
+         SIDEBAR
+    ====================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- BRAND -->
+
+        <div class="brand">
+
+            <div class="logo">
+                📚
+            </div>
+
+            <div>
+
+                <h2>
+                    LibraSys
+                </h2>
+
+                <small>
+                    Library Management
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <!-- MAIN MENU -->
+
+        <div class="menu-title">
+            MAIN MENU
+        </div>
+
+
+        <nav class="nav">
+
+
+            <!-- DASHBOARD -->
+
+            <a href="index.html">
+
+                <span>⌂</span>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </a>
+
+
+            <!-- BOOKS -->
+
+            <a href="books.html">
+
+                <span>▣</span>
+
+                <span>
+                    Books
+                </span>
+
+            </a>
+
+
+            <!-- MEMBERS -->
+
+            <a href="members.html">
+
+                <span>♙</span>
+
+                <span>
+                    Members
+                </span>
+
+            </a>
+
+
+            <!-- ISSUE -->
+
+            <a href="issue-book.html">
+
+                <span>⇧</span>
+
+                <span>
+                    Issue Book
+                </span>
+
+            </a>
+
+
+            <!-- RETURN -->
+
+            <a href="return-book.html">
+
+                <span>⇩</span>
+
+                <span>
+                    Return Book
+                </span>
+
+            </a>
+
+
+            <!-- TRANSACTIONS -->
+
+            <a href="transactions.html">
+
+                <span>▤</span>
+
+                <span>
+                    Transactions
+                </span>
+
+            </a>
+
+
+            <!-- REPORTS -->
+
+            <a
+                href="reports.html"
+                class="active"
+            >
+
+                <span>▥</span>
+
+                <span>
+                    Reports
+                </span>
+
+            </a>
+
+        </nav>
+
+
+        <!-- SYSTEM -->
+
+        <div class="menu-title">
+            SYSTEM
+        </div>
+
+
+        <nav class="nav">
+
+
+            <a href="settings.html">
+
+                <span>⚙</span>
+
+                <span>
+                    Settings
+                </span>
+
+            </a>
+
+
+            <a href="logout.html">
+
+                <span>⇥</span>
+
+                <span>
+                    Logout
+                </span>
+
+            </a>
+
+        </nav>
+
+
+        <!-- TIP -->
+
+        <div class="side-tip">
+
+            <div class="tip-icon">
+                📊
+            </div>
+
+            <b>
+                Smart Reports
+            </b>
+
+            <p>
+                Track library performance and
+                analyze borrowing activity easily.
+            </p>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================
+         MAIN CONTENT
+    ====================================== -->
+
+    <main class="main">
+
+
+        <!-- =====================================
+             TOPBAR
+        ====================================== -->
+
+        <header class="topbar">
+
+
+            <!-- TITLE -->
+
+            <div class="title">
+
+                <h1>
+                    Reports
+                </h1>
+
+
+                <div class="crumb">
+
+                    <a href="index.html">
+                        Dashboard
+                    </a>
+
+                    <span>
+                        ›
+                    </span>
+
+                    <b>
+                        Reports
+                    </b>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT -->
+
+            <div class="top-right">
+
+
+                <!-- SEARCH -->
+
+                <div class="global-search">
+
+                    🔍
+
+                    <input
+                        type="text"
+                        placeholder="Search anything..."
+                    >
+
+                </div>
+
+
+                <!-- NOTIFICATION -->
+
+                <div class="bell">
+
+                    🔔
+
+                    <i>
+                        3
+                    </i>
+
+                </div>
+
+
+                <!-- PROFILE -->
+
+                <div class="profile">
+
+                    <div class="avatar">
+                        A
+                    </div>
+
+                    <div>
+
+                        <b>
+                            Admin
+                        </b>
+
+                        <small>
+                            Administrator
+                        </small>
+
+                    </div>
+
+                    <span>
+                        ⌄
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =====================================
+             REPORT HEADER
+        ====================================== -->
+
+        <div
+            class="card"
+            style="
+                margin-bottom:18px;
+                background:
+                linear-gradient(
+                    135deg,
+                    #fff7ed,
+                    #ffffff
+                );
+            "
+        >
+
+            <div
+                style="
+                    display:flex;
+                    justify-content:
+                    space-between;
+                    align-items:center;
+                    gap:20px;
+                    flex-wrap:wrap;
+                "
+            >
+
+
+                <!-- REPORT INFO -->
+
+                <div
+                    style="
+                        display:flex;
+                        align-items:center;
+                        gap:15px;
+                    "
+                >
+
+                    <div
+                        style="
+                            width:56px;
+                            height:56px;
+                            border-radius:14px;
+                            background:#fff0e2;
+                            display:grid;
+                            place-items:center;
+                            font-size:28px;
+                        "
+                    >
+                        📊
+                    </div>
+
+
+                    <div>
+
+                        <h2
+                            style="
+                                font-size:18px;
+                                margin-bottom:5px;
+                            "
+                        >
+                            Library Reports
+                        </h2>
+
+                        <p
+                            style="
+                                color:#7b8799;
+                                font-size:10px;
+                            "
+                        >
+                            Analyze your library's
+                            performance and activity.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ACTION BUTTONS -->
+
+                <div
+                    style="
+                        display:flex;
+                        gap:8px;
+                    "
+                >
+
+                    <button class="btn secondary">
+
+                        🖨
+                        Print
+
+                    </button>
+
+
+                    <button class="btn primary">
+
+                        ⇩
+                        Export Report
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================
+             FILTER
+        ====================================== -->
+
+        <div class="toolbar">
+
+
+            <select>
+
+                <option>
+                    This Month
+                </option>
+
+                <option>
+                    Last Month
+                </option>
+
+                <option>
+                    Last 3 Months
+                </option>
+
+                <option>
+                    This Year
+                </option>
+
+            </select>
+
+
+            <select>
+
+                <option>
+                    All Categories
+                </option>
+
+                <option>
+                    Programming
+                </option>
+
+                <option>
+                    Database
+                </option>
+
+                <option>
+                    Web Development
+                </option>
+
+                <option>
+                    Fiction
+                </option>
+
+            </select>
+
+
+            <select>
+
+                <option>
+                    All Members
+                </option>
+
+                <option>
+                    Students
+                </option>
+
+                <option>
+                    Faculty
+                </option>
+
+                <option>
+                    General
+                </option>
+
+            </select>
+
+
+            <button class="btn primary">
+
+                Apply Filters
+
+            </button>
+
+        </div>
+
+
+
+        <!-- =====================================
+             REPORT STATISTICS
+        ====================================== -->
+
+        <section class="stats">
+
+
+            <!-- TOTAL ISSUES -->
+
+            <div class="stat">
+
+                <div class="stat-head">
+
+                    <div class="stat-icon s-blue">
+                        📤
+                    </div>
+
+                    <span>
+                        ↗
+                    </span>
+
+                </div>
+
+                <p>
+                    Total Issues
+                </p>
+
+                <h2>
+                    630
+                </h2>
+
+                <span class="growth">
+                    ↑ 12.5% vs last month
+                </span>
+
+            </div>
+
+
+            <!-- RETURNS -->
+
+            <div class="stat">
+
+                <div class="stat-head">
+
+                    <div class="stat-icon s-green">
+                        📥
+                    </div>
+
+                    <span>
+                        ↗
+                    </span>
+
+                </div>
+
+                <p>
+                    Total Returns
+                </p>
+
+                <h2>
+                    520
+                </h2>
+
+                <span class="growth">
+                    ↑ 9.8% vs last month
+                </span>
+
+            </div>
+
+
+            <!-- OVERDUE -->
+
+            <div class="stat">
+
+                <div class="stat-head">
+
+                    <div class="stat-icon s-red">
+                        ⏰
+                    </div>
+
+                    <span>
+                        ↗
+                    </span>
+
+                </div>
+
+                <p>
+                    Overdue Books
+                </p>
+
+                <h2>
+                    84
+                </h2>
+
+                <span
+                    style="
+                        color:#e65353;
+                        font-size:9px;
+                        font-weight:700;
+                    "
+                >
+                    ↓ 4.2% vs last month
+                </span>
+
+            </div>
+
+
+            <!-- FINE -->
+
+            <div class="stat">
+
+                <div class="stat-head">
+
+                    <div class="stat-icon s-orange">
+                        ₹
+                    </div>
+
+                    <span>
+                        ↗
+                    </span>
+
+                </div>
+
+                <p>
+                    Fine Collected
+                </p>
+
+                <h2>
+                    ₹8,420
+                </h2>
+
+                <span class="growth">
+                    ↑ 16.4% vs last month
+                </span>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             CHART + CATEGORY
+        ====================================== -->
+
+        <section
+            class="dashboard-grid"
+            style="
+                margin-bottom:18px;
+            "
+        >
+
+
+            <!-- =================================
+                 MONTHLY ACTIVITY
+            ================================== -->
+
+            <div class="card">
+
+
+                <div class="card-head">
+
+                    <div>
+
+                        <h3>
+                            Monthly Library Activity
+                        </h3>
+
+                        <p>
+                            Issues and returns over the
+                            last 6 months
+                        </p>
+
+                    </div>
+
+
+                    <select class="select">
+
+                        <option>
+                            2026
+                        </option>
+
+                        <option>
+                            2025
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- CUSTOM LARGE CHART -->
+
+                <div
+                    style="
+                        height:245px;
+                        display:flex;
+                        align-items:flex-end;
+                        gap:18px;
+                        padding:
+                        15px 10px 0;
+                        border-bottom:
+                        1px solid #e7ebf1;
+                    "
+                >
+
+
+                    <!-- JAN -->
+
+                    <div
+                        style="
+                            flex:1;
+                            height:100%;
+                            display:flex;
+                            align-items:flex-end;
+                            justify-content:center;
+                            gap:4px;
+                        "
+                    >
+
+                        <div
+                            style="
+                                width:16px;
+                                height:48%;
+                                background:#477de8;
+                                border-radius:
+                                5px 5px 0 0;
+                            "
+                        ></div>
+
+                        <div
+                            style="
+                                width:16px;
+                                height:34%;
+                                background:#f28b2d;
+                                border-radius:
+                                5px 5px 0 0;
+                            "
+                        ></div>
+
+                    </div>
+
+
+                    <!-- FEB -->
+
+                    <div
+                        style="
+                            flex:1;
+                            height:100%;
+                            display:flex;
+                            align-items:flex-end;
+                            justify-content:center;
+                            gap:4px;
+                        "
+                    >
+
+                        <div
+                            style="
+                                width:16px;
+                                height:55%;
+                                background:#477de8;
+                                border-radius:
+                                5px 5px 0 0;
+                            "
+                        ></div>
+
+                        <div
+                            style="
+                                width:16px;
+                                height:42%;
+                                background:#f28b2d;
+                                border-radius:
+                                5px 5px 0 0;
+                            "
+                        ></div>
+
+                    </div>
+
+
+                    <!-- MAR -->
+
+                    <div
+                        style="
+                            flex:1;
+                            height:100%;
+                            display:flex;
+                            align-items:flex-end;
+                            justify-content:center;
+                            gap:4px;
+                        "
+                    >
+
+                        <div
+                            style="
+                                width:16px;
+                                height:62%;
+                                background:#477de8;
+                                border-radius:
+                                5px 5px 0 0;
+                            "
+                        ></div>
+
+                        <div
+                            style="
+                                width:16px;
+                                height:46%;
+                                background:#f28b2d;
+                                border-radius:
+                                5px 5px 0 0;
+                            "
+                        ></div>
+
+                    </div>
+
+
+                    <!-- APR -->
+
+                    <div
+                        style="
+                            flex:1;
+                            height:100%;
+                            display:flex;
+                            align-items:flex-end;
+                            justify-content:center;
+                            gap:4px;
+                        "
+                    >
+
+                        <div
+                            style="
+                                width:16px;
+                                height:70%;
+                                background:#477de8;
+                                border-radius:
+                                5px 5px 0 0;
+                            "
+                        ></div>
+
+                        <div
+                            style="
+                                width:16px;
+                                height:54%;
+                                background:#f28b2d;
+                                border-radius:
+                                5px 5px 0 0;
+                            "
+                        ></div>
+
+                    </div>
+
+
+                    <!-- MAY -->
+
+                    <div
+                        style="
+                            flex:1;
+                            height:100%;
+                            display:flex;
+                            align-items:flex-end;
+                            justify-content:center;
+                            gap:4px;
+                        "
+                    >
+
+                        <div
+                            style="
+                                width:16px;
+                                height:80%;
+                                background:#477de8;
+                                border-radius:
+                                5px 5px 0 0;
+                            "
+                        ></div>
+
+                        <div
+                            style="
+                                width:16px;
+                                height:62%;
+                                background:#f28b2d;
+                                border-radius:
+                                5px 5px 0 0;
+                            "
+                        ></div>
+
+                    </div>
+
+
+                    <!-- JUN -->
+
+                    <div
+                        style="
+                            flex:1;
+                            height:100%;
+                            display:flex;
+                            align-items:flex-end;
+                            justify-content:center;
+                            gap:4px;
+                        "
+                    >
+
+                        <div
+                            style="
+                                width:16px;
+                                height:91%;
+                                background:#477de8;
+                                border-radius:
+                                5px 5px 0 0;
+                            "
+                        ></div>
+
+                        <div
+                            style="
+                                width:16px;
+                                height:70%;
+                                background:#f28b2d;
+                                border-radius:
+                                5px 5px 0 0;
+                            "
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MONTH LABELS -->
+
+                <div class="days">
+
+                    <span>Jan</span>
+
+                    <span>Feb</span>
+
+                    <span>Mar</span>
+
+                    <span>Apr</span>
+
+                    <span>May</span>
+
+                    <span>Jun</span>
+
+                </div>
+
+
+                <!-- LEGEND -->
+
+                <div class="legend">
+
+                    <span>
+
+                        <i
+                            style="
+                                background:#477de8;
+                            "
+                        ></i>
+
+                        Books Issued
+
+                    </span>
+
+
+                    <span>
+
+                        <i
+                            style="
+                                background:#f28b2d;
+                            "
+                        ></i>
+
+                        Books Returned
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================
+                 CATEGORY DISTRIBUTION
+            ================================== -->
+
+            <div class="card">
+
+
+                <div class="card-head">
+
+                    <div>
+
+                        <h3>
+                            Books by Category
+                        </h3>
+
+                        <p>
+                            Distribution of library collection
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DONUT -->
+
+                <div
+                    style="
+                        display:flex;
+                        justify-content:center;
+                        margin:10px 0 20px;
+                    "
+                >
+
+                    <div
+                        class="donut"
+                        style="
+                            width:170px;
+                            height:170px;
+                            background:
+                            conic-gradient(
+                                #477de8 0 38%,
+                                #f28b2d 38% 62%,
+                                #29a966 62% 78%,
+                                #8057d9 78% 90%,
+                                #ef5353 90% 100%
+                            );
+                        "
+                    >
+
+                        <div
+                            class="donut-center"
+                        >
+
+                            <b>
+                                2,450
+                            </b>
+
+                            <small>
+                                Total Books
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CATEGORY LIST -->
+
+                <div class="status-line">
+
+                    🔵 Programming
+
+                    <b>
+                        38%
+                    </b>
+
+                </div>
+
+
+                <div class="status-line">
+
+                    🟠 Database
+
+                    <b>
+                        24%
+                    </b>
+
+                </div>
+
+
+                <div class="status-line">
+
+                    🟢 Web Development
+
+                    <b>
+                        16%
+                    </b>
+
+                </div>
+
+
+                <div class="status-line">
+
+                    🟣 Fiction
+
+                    <b>
+                        12%
+                    </b>
+
+                </div>
+
+
+                <div class="status-line">
+
+                    🔴 Other
+
+                    <b>
+                        10%
+                    </b>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             POPULAR BOOKS + MEMBER REPORT
+        ====================================== -->
+
+        <section class="bottom-grid">
+
+
+            <!-- =================================
+                 POPULAR BOOKS
+            ================================== -->
+
+            <div class="card">
+
+
+                <div class="card-head">
+
+                    <div>
+
+                        <h3>
+                            Most Popular Books
+                        </h3>
+
+                        <p>
+                            Books with highest issue count
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="books.html"
+                        class="link"
+                    >
+                        View all
+                    </a>
+
+                </div>
+
+
+                <!-- BOOK 1 -->
+
+                <div
+                    style="
+                        display:flex;
+                        align-items:center;
+                        gap:11px;
+                        padding:11px 0;
+                        border-bottom:
+                        1px solid #edf0f4;
+                    "
+                >
+
+                    <div
+                        class="cover c1"
+                        style="
+                            width:36px;
+                            height:48px;
+                        "
+                    >
+                        JAVA
+                    </div>
+
+                    <div style="flex:1;">
+
+                        <strong
+                            style="
+                                font-size:10px;
+                                display:block;
+                            "
+                        >
+                            Java Programming
+                        </strong>
+
+                        <small
+                            style="
+                                color:#8993a3;
+                                font-size:8px;
+                            "
+                        >
+                            James Gosling
+                        </small>
+
+                    </div>
+
+                    <b
+                        style="
+                            font-size:11px;
+                            color:#477de8;
+                        "
+                    >
+                        85
+                    </b>
+
+                </div>
+
+
+                <!-- BOOK 2 -->
+
+                <div
+                    style="
+                        display:flex;
+                        align-items:center;
+                        gap:11px;
+                        padding:11px 0;
+                        border-bottom:
+                        1px solid #edf0f4;
+                    "
+                >
+
+                    <div
+                        class="cover c2"
+                        style="
+                            width:36px;
+                            height:48px;
+                        "
+                    >
+                        PYTHON
+                    </div>
+
+                    <div style="flex:1;">
+
+                        <strong
+                            style="
+                                font-size:10px;
+                                display:block;
+                            "
+                        >
+                            Python Basics
+                        </strong>
+
+                        <small
+                            style="
+                                color:#8993a3;
+                                font-size:8px;
+                            "
+                        >
+                            Mark Lutz
+                        </small>
+
+                    </div>
+
+                    <b
+                        style="
+                            font-size:11px;
+                            color:#477de8;
+                        "
+                    >
+                        72
+                    </b>
+
+                </div>
+
+
+                <!-- BOOK 3 -->
+
+                <div
+                    style="
+                        display:flex;
+                        align-items:center;
+                        gap:11px;
+                        padding:11px 0;
+                        border-bottom:
+                        1px solid #edf0f4;
+                    "
+                >
+
+                    <div
+                        class="cover c3"
+                        style="
+                            width:36px;
+                            height:48px;
+                        "
+                    >
+                        ATOMIC
+                    </div>
+
+                    <div style="flex:1;">
+
+                        <strong
+                            style="
+                                font-size:10px;
+                                display:block;
+                            "
+                        >
+                            Atomic Habits
+                        </strong>
+
+                        <small
+                            style="
+                                color:#8993a3;
+                                font-size:8px;
+                            "
+                        >
+                            James Clear
+                        </small>
+
+                    </div>
+
+                    <b
+                        style="
+                            font-size:11px;
+                            color:#477de8;
+                        "
+                    >
+                        60
+                    </b>
+
+                </div>
+
+
+                <!-- BOOK 4 -->
+
+                <div
+                    style="
+                        display:flex;
+                        align-items:center;
+                        gap:11px;
+                        padding:11px 0;
+                    "
+                >
+
+                    <div
+                        class="cover c5"
+                        style="
+                            width:36px;
+                            height:48px;
+                        "
+                    >
+                        NETWORK
+                    </div>
+
+                    <div style="flex:1;">
+
+                        <strong
+                            style="
+                                font-size:10px;
+                                display:block;
+                            "
+                        >
+                            Computer Networking
+                        </strong>
+
+                        <small
+                            style="
+                                color:#8993a3;
+                                font-size:8px;
+                            "
+                        >
+                            Andrew Tanenbaum
+                        </small>
+
+                    </div>
+
+                    <b
+                        style="
+                            font-size:11px;
+                            color:#477de8;
+                        "
+                    >
+                        55
+                    </b>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================
+                 MEMBER ACTIVITY
+            ================================== -->
+
+            <div class="card">
+
+
+                <div class="card-head">
+
+                    <div>
+
+                        <h3>
+                            Member Activity
+                        </h3>
+
+                        <p>
+                            Most active library members
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="members.html"
+                        class="link"
+                    >
+                        View all
+                    </a>
+
+                </div>
+
+
+                <!-- MEMBER 1 -->
+
+                <div class="activity">
+
+                    <div
+                        class="avatar"
+                        style="
+                            width:35px;
+                            height:35px;
+                            font-size:9px;
+                            background:
+                            linear-gradient(
+                                135deg,
+                                #477de8,
+                                #315fc2
+                            );
+                        "
+                    >
+                        RS
+                    </div>
+
+                    <div style="flex:1;">
+
+                        <b>
+                            Rahul Sharma
+                        </b>
+
+                        <small>
+                            18 books borrowed
+                        </small>
+
+                    </div>
+
+                    <span
+                        class="badge available"
+                    >
+                        Active
+                    </span>
+
+                </div>
+
+
+                <!-- MEMBER 2 -->
+
+                <div class="activity">
+
+                    <div
+                        class="avatar"
+                        style="
+                            width:35px;
+                            height:35px;
+                            font-size:9px;
+                            background:
+                            linear-gradient(
+                                135deg,
+                                #18a05a,
+                                #08753d
+                            );
+                        "
+                    >
+                        PS
+                    </div>
+
+                    <div style="flex:1;">
+
+                        <b>
+                            Priya Singh
+                        </b>
+
+                        <small>
+                            15 books borrowed
+                        </small>
+
+                    </div>
+
+                    <span
+                        class="badge available"
+                    >
+                        Active
+                    </span>
+
+                </div>
+
+
+                <!-- MEMBER 3 -->
+
+                <div class="activity">
+
+                    <div
+                        class="avatar"
+                        style="
+                            width:35px;
+                            height:35px;
+                            font-size:9px;
+                            background:
+                            linear-gradient(
+                                135deg,
+                                #8057d9,
+                                #5b3bb0
+                            );
+                        "
+                    >
+                        AK
+                    </div>
+
+                    <div style="flex:1;">
+
+                        <b>
+                            Aman Kumar
+                        </b>
+
+                        <small>
+                            12 books borrowed
+                        </small>
+
+                    </div>
+
+                    <span
+                        class="badge available"
+                    >
+                        Active
+                    </span>
+
+                </div>
+
+
+                <!-- MEMBER 4 -->
+
+                <div class="activity">
+
+                    <div
+                        class="avatar"
+                        style="
+                            width:35px;
+                            height:35px;
+                            font-size:9px;
+                            background:
+                            linear-gradient(
+                                135deg,
+                                #f28b2d,
+                                #d75d09
+                            );
+                        "
+                    >
+                        NV
+                    </div>
+
+                    <div style="flex:1;">
+
+                        <b>
+                            Neha Verma
+                        </b>
+
+                        <small>
+                            10 books borrowed
+                        </small>
+
+                    </div>
+
+                    <span
+                        class="badge overdue"
+                    >
+                        Overdue
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             FOOTER
+        ====================================== -->
+
+        <footer>
+
+            © 2026 LibraSys.
+            All rights reserved.
+
+        </footer>
+
+
+    </main>
+
+</div>
+
+</body>
+
+</html>
